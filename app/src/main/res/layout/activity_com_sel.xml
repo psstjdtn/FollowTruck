@@ -9,6 +9,7 @@
 
 
     <Button
+        android:id="@+id/shopsel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -16,9 +17,12 @@
         android:layout_margin="50dp"
         android:background="@color/login_btn_bg"
         android:textColor="@color/login_btn_text"
-        android:text="나는영업장입니다" />
+        android:text="나는영업장입니다"
+        android:textSize="20dp"
+        android:clickable="true"/>
 
     <Button
+        android:id="@+id/cussel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -26,5 +30,7 @@
         android:layout_margin="50dp"
         android:background="@color/login_btn_bg"
         android:textColor="@color/login_btn_text"
-        android:text="나는고객입니다" />
+        android:text="나는고객입니다"
+        android:textSize="20dp"
+        android:clickable="true"/>
 </LinearLayout>

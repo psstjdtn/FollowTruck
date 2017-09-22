@@ -5,11 +5,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:weightSum="1"
     tools:context="com.shinhan.sspark.followtruck.SubActivity">
 
     <TextView
-        android:id="@+id/idpwText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="로그인" />
@@ -37,7 +37,7 @@
             android:id="@+id/uid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -60,7 +60,7 @@
             android:id="@+id/upw"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:ems="10"
             android:inputType="textPassword" />
     </LinearLayout>
@@ -72,23 +72,23 @@
         android:weightSum="2">
 
         <Button
+            android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:elevation="0dp"
             android:text="로그인"
-            android:onClick="onLogin"
+            android:clickable="true"
             android:background="@color/login_btn_bg"
             android:textColor="@color/login_btn_text"
             android:layout_margin="30dp"/>
 
         <Button
+            android:id="@+id/signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:elevation="0dp"
             android:text="회원가입"
-            android:onClick="onLogin"
+            android:clickable="true"
             android:background="@color/login_btn_bg"
             android:textColor="@color/login_btn_text"
             android:layout_margin="30dp"/>
