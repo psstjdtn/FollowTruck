@@ -15,14 +15,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:weightSum="3">
-        <!-- 가중치의 총합은 weightSum
-             만약 wheightSum=3이고, 자식이 1, 1.5 사용할시
-             화면의 크기에 상관없이 0.5가 비워짐
-             layout_weight+layout_height+.. = weightSum
-             => 자식들은 비율만큼 차지한다.
-             layout_weight+layout_height+.. < weightSum
-             => 남은만큼 비운다
-        -->
+
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"

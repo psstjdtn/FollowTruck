@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="1"
     tools:context="com.shinhan.sspark.followtruck.BizManageActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="주소명" />
+
+        <TextView
+            android:id="@+id/addr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:ems="10"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/stEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="영업시작/종료"
+            android:clickable="true"
+            android:background="@color/biz_btn_bg"
+            android:textColor="@color/biz_btn_text"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/boardMng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="게시판관리"
+            android:clickable="true"
+            android:background="@color/biz_btn_bg"
+            android:textColor="@color/biz_btn_text"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/menuLocMng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴/위치관리"
+            android:clickable="true"
+            android:background="@color/biz_btn_bg"
+            android:textColor="@color/biz_btn_text"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/orderHis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="주문내역"
+            android:clickable="true"
+            android:background="@color/biz_btn_bg"
+            android:textColor="@color/biz_btn_text"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>
