@@ -3,6 +3,8 @@ package com.shinhan.sspark.followtruck;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+
+
 public class CusMainActivity extends AppCompatActivity {
 
     @Override
