@@ -27,10 +27,9 @@ public class SubActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, ComSelActivity.class);
+                intent.putExtra("TRX_G","LOGIN");
                 // 페이지 넘어가기
                 startActivity(intent);
-                // 앱종료
-                finish();
             }
         });
 
@@ -38,10 +37,9 @@ public class SubActivity extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 Intent intent = new Intent(SubActivity.this, ComSelActivity.class);
+                intent.putExtra("TRX_G","SIGNUP");
                 // 페이지 넘어가기
                 startActivity(intent);
-                // 앱종료
-                finish();
             }
         });
 

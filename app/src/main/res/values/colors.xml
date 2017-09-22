@@ -7,4 +7,13 @@
     <!-- 로그인 색상 -->
     <color name="login_btn_bg">#569df4</color>
     <color name="login_btn_text">#FFFFFF</color>
+
+    <!-- 점포 색상 -->
+    <color name="biz_btn_bg">#8885a4</color>
+    <color name="biz_btn_text">#FFFFFF</color>
+
+    <!-- 고객 색상 -->
+    <color name="cus_btn_bg">#f5d1b7</color>
+    <color name="cus_btn_text">#FFFFFF</color>
+
 </resources>

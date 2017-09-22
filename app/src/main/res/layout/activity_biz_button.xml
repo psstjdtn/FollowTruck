@@ -8,23 +8,29 @@
     tools:context="com.shinhan.sspark.followtruck.BizButtonActivity">
 
     <Button
+        android:id="@+id/bizdrk"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:layout_margin="50dp"
-        android:background="@color/login_btn_bg"
-        android:textColor="@color/login_btn_text"
-        android:text="나는영업장입니다" />
+        android:background="@color/biz_btn_bg"
+        android:textColor="@color/biz_btn_text"
+        android:text="점포등록"
+        android:textSize="30dp"
+        android:clickable="true"/>
 
     <Button
+        android:id="@+id/bizmng"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:layout_margin="50dp"
-        android:background="@color/login_btn_bg"
-        android:textColor="@color/login_btn_text"
-        android:text="나는고객입니다" />
+        android:background="@color/biz_btn_bg"
+        android:textColor="@color/biz_btn_text"
+        android:text="점포관리"
+        android:textSize="30dp"
+        android:clickable="true"/>
 
 </LinearLayout>

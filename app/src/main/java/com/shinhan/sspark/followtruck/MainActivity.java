@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
                 // 페이지 넘어가기
                 startActivity(intent);
-                // 앱종료
+                // 종료
                 finish();
             }
         });
