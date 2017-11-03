@@ -72,7 +72,8 @@
             android:clickable="true"
             android:background="@color/login_btn_bg"
             android:textColor="@color/login_btn_text"
-            android:layout_margin="30dp"/>
+            android:layout_margin="30dp"
+            android:onClick="login"/>
 
         <Button
             android:id="@+id/signup"
