@@ -1,11 +1,11 @@
 package com.shinhan.sspark.followtruck;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
@@ -15,42 +15,21 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-
 import static android.webkit.WebSettings.LOAD_NO_CACHE;
 
+public class BizWebViewActivity extends AppCompatActivity {
+    private static final String HOME_URL = "http://172.16.2.3:9000/#!/";
+    private static final String MENU_URL = "http://172.16.2.3:9000/#!/menu";
+    private static final String ORDER_URL = "http://172.16.2.3:9000/#!/order/biz/list";
+    private static final String BIZ_URL = "http://172.16.2.3:9000/#!/users/biz";
 
-public class CusMainActivity extends AppCompatActivity {
-
-    SupportMapFragment mapFragment;
-    GoogleMap map;
-    WebView webView;
     int flag = 0;
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cus_main);
-
-        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(new OnMapReadyCallback(){
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                Log.d("TAG", "Googlemap is ready");
-
-                map = googleMap;
-            }
-        });
-
-
-        try {
-            MapsInitializer.initialize(this);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        setContentView(R.layout.activity_biz_web_view);
 
         webView = (WebView)findViewById(R.id.webView);
         // 웹뷰 설정 부분
@@ -70,6 +49,8 @@ public class CusMainActivity extends AppCompatActivity {
             }
         });
         webView.setWebChromeClient(new WebChromeClient(){
+
+
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
                 super.onProgressChanged(view, newProgress);
@@ -86,16 +67,44 @@ public class CusMainActivity extends AppCompatActivity {
             public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
                 return super.onJsPrompt(view, url, message, defaultValue, result);
             }
+
         });
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setCacheMode(LOAD_NO_CACHE);
         webView.getSettings().setDatabaseEnabled(true);
-        webView.loadUrl("https://m.shinhan.com");
+        webView.loadUrl(HOME_URL+"?os=android&version=1.0&device=emul");
     }
 
-    public void bizInfo(View view){
+    //클릭이벤트
+    public void locateManage(View view)
+    {
+        Intent intent = new Intent(BizWebViewActivity.this, BizManageActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.anim_slide_in_zero, R.anim.anim_slide_out_zero);
+        finish();
+    }
 
+    public void menulist(View view)
+    {
+        webView.loadUrl(MENU_URL +"?os=android&version=1.0&device=emul");
+    }
+
+    public void menuinsert(View view)
+    {
+        Intent intent = new Intent(BizWebViewActivity.this, MenuInsertActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+    }
+
+    public void orderHistory(View view)
+    {
+        webView.loadUrl(ORDER_URL+"?os=android&version=1.0&device=emul");
+    }
+
+    public void myInfo(View view)
+    {
+        webView.loadUrl(BIZ_URL+"?os=android&version=1.0&device=emul");
     }
 
     @Override
@@ -120,5 +129,5 @@ public class CusMainActivity extends AppCompatActivity {
             flag = 0;
         }
     };
-}
 
+}

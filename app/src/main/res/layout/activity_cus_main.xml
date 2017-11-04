@@ -5,14 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:weightSum="100"
     tools:context="com.shinhan.sspark.followtruck.CusMainActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        class="com.google.android.gms.maps.SupportMapFragment" />
 
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </WebView>
+        android:layout_height="0dp"
+        android:layout_weight="39">   </WebView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="상세보기"
+        android:clickable="true"
+        android:background="@color/cus_btn_bg"
+        android:textColor="@color/cus_btn_text"
+        android:onClick="bizInfo"/>
 
 </LinearLayout>

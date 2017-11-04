@@ -25,6 +25,7 @@
             android:text="고객구분" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -32,16 +33,18 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/custom_radio"
+                android:id="@+id/cus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="고객" />
+                android:text="고객"
+                android:checked="true"/>
 
             <RadioButton
-                android:id="@+id/biz_radio"
+                android:id="@+id/biz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="영업장" />
+                android:text="영업장"
+                android:checked="false"/>
 
         </RadioGroup>
     </LinearLayout>

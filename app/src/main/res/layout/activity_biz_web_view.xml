@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="80"
-    tools:context="com.shinhan.sspark.followtruck.BizManageActivity">
+    tools:context="com.shinhan.sspark.followtruck.BizWebViewActivity">
 
-    <fragment
-        android:id="@+id/map"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="80"
-        class="com.google.android.gms.maps.SupportMapFragment" />
+        android:layout_height="0dp"
+        android:layout_weight="80"></WebView>
 
     <!-- 버튼이벤트 -->
     <LinearLayout
@@ -27,11 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="영업시작"
+            android:text="위치등록"
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="locateUpdate"/>
+            android:onClick="locateManage"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -41,7 +40,8 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="menulist"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="orderHistory"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -70,6 +70,9 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="myInfo"/>
     </LinearLayout>
+
 </LinearLayout>
+
+
