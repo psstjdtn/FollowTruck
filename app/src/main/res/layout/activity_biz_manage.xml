@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="4"
+        android:weightSum="5"
         android:layout_weight="10">
 
         <Button
@@ -41,7 +41,7 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="webMove1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="webMove2"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -70,6 +70,6 @@
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
-            android:onClick="webMove"/>
+            android:onClick="webMove3"/>
     </LinearLayout>
 </LinearLayout>

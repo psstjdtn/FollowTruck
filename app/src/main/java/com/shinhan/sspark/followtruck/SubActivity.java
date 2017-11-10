@@ -206,15 +206,18 @@ public class SubActivity extends AppCompatActivity {
 
                 JSONObject json = new JSONObject(s);
                 int user_code = (Integer) json.get("user_code");
+                String id = json.getString("userid");
 
                 if (user_code == 1) {//고객화면
                     Intent intent = new Intent(SubActivity.this, CusMainActivity.class);
+                    intent.putExtra("ID", id.toString());
                     startActivity(intent);
                     overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
                     finish();
                 }
                 else if (user_code == 2) {//영업장화면
                     Intent intent = new Intent(SubActivity.this, BizManageActivity.class);
+                    intent.putExtra("ID", id.toString());
                     startActivity(intent);
                     overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
                     finish();

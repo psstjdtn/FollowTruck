@@ -2,10 +2,12 @@ package com.shinhan.sspark.followtruck;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,10 +39,15 @@ public class MenuInsertActivity extends AppCompatActivity {
 
     EditText name, price;
 
+    String businessid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_insert);
+
+        Intent intent = getIntent();
+        businessid = intent.getStringExtra("ID").toString();
 
         Button backbutton = (Button)findViewById(R.id.backbutton);
 
@@ -57,6 +64,15 @@ public class MenuInsertActivity extends AppCompatActivity {
     public void imageUpload(View view) {
         name       = (EditText)findViewById(R.id.name);
         price      = (EditText)findViewById(R.id.price);
+
+        // Register the listener with the Location Manager to receive location updates
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+            // 사용자 권한 요청
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+        }
 
         Intent intent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -76,9 +92,7 @@ public class MenuInsertActivity extends AppCompatActivity {
                     Uri mImageCaptureUri = data.getData();
                     new ImageUpload().execute(
                             "http://172.16.2.3:52273/menu/images",
-                            mCurrentPhotoPath, "DESCRIPTION",
-                            name.getText().toString(),
-                            price.getText().toString());
+                            mCurrentPhotoPath, "DESCRIPTION");
                 }
                 break;
         }
@@ -191,7 +205,7 @@ public class MenuInsertActivity extends AppCompatActivity {
                         name.getText().toString(),
                         price.getText().toString(),
                         imgurl.toString(),
-                        ""
+                        businessid.toString()
                 );
             } catch (Exception e) { e.printStackTrace(); }
 
@@ -215,7 +229,7 @@ public class MenuInsertActivity extends AppCompatActivity {
                 postDataParams.put("name", params[1]);
                 postDataParams.put("price", params[2]);
                 postDataParams.put("imgurl", params[3]);
-                postDataParams.put("businessid", "");
+                postDataParams.put("businessid", params[4]);
 
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                 if (conn != null) {
@@ -259,9 +273,6 @@ public class MenuInsertActivity extends AppCompatActivity {
                     Toast.makeText(MenuInsertActivity.this,
                             "메뉴등록에 성공하였습니다.",
                             Toast.LENGTH_SHORT).show();
-                    // 끝내기
-                    Intent intent = new Intent(MenuInsertActivity.this, BizWebViewActivity.class);
-                    startActivity(intent);
                     finish();
                     overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
                 } else {//로그인 실패
@@ -298,4 +309,3 @@ public class MenuInsertActivity extends AppCompatActivity {
         return result.toString();
     }
 }
-

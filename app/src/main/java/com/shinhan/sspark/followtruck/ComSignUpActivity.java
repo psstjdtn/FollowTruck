@@ -128,7 +128,7 @@ public class ComSignUpActivity extends AppCompatActivity {
         {
             // req.body.businessid, req.body.name, req.body.context, req.body.gps, 2
             new BizInsert().execute(
-                    "http://172.16.2.3:52273/users/biz",
+                    "http://172.16.2.3:52273/biz",
                     uid.getText().toString(),
                     name.getText().toString(),
                     "신규등록",
