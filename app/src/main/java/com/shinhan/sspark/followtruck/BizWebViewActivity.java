@@ -81,6 +81,11 @@ public class BizWebViewActivity extends AppCompatActivity {
         webView.getSettings().setCacheMode(LOAD_NO_CACHE);
         webView.getSettings().setDatabaseEnabled(true);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (webmove == 1){
             webView.loadUrl(MENU_URL+"?businessid="+businessid.toString());
         }
@@ -88,9 +93,8 @@ public class BizWebViewActivity extends AppCompatActivity {
             webView.loadUrl(ORDER_URL);
         }
         else if(webmove == 3){
-            webView.loadUrl(BIZ_URL);
+            webView.loadUrl(BIZ_URL+"?businessid="+businessid.toString());
         }
-
     }
 
     //클릭이벤트
@@ -105,6 +109,7 @@ public class BizWebViewActivity extends AppCompatActivity {
 
     public void menulist(View view)
     {
+        webmove = 1;
         webView.loadUrl(MENU_URL+"?businessid="+businessid.toString());
     }
 
@@ -114,16 +119,20 @@ public class BizWebViewActivity extends AppCompatActivity {
         intent.putExtra("ID", businessid.toString());
         startActivity(intent);
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+
+        webView.loadUrl(MENU_URL+"?businessid="+businessid.toString());
     }
 
     public void orderHistory(View view)
     {
+        webmove = 2;
         webView.loadUrl(ORDER_URL);
     }
 
     public void myInfo(View view)
     {
-        webView.loadUrl(BIZ_URL);
+        webmove = 3;
+        webView.loadUrl(BIZ_URL+"?businessid="+businessid.toString());
     }
 
     @Override

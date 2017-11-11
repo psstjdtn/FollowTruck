@@ -37,20 +37,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="메뉴보기"
-            android:clickable="true"
-            android:background="@color/biz_btn_bg"
-            android:textColor="@color/biz_btn_text"
-            android:onClick="webMove1"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="메뉴등록"
             android:clickable="true"
             android:background="@color/biz_btn_bg"
             android:textColor="@color/biz_btn_text"
             android:onClick="menuinsert"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="메뉴보기"
+            android:clickable="true"
+            android:background="@color/biz_btn_bg"
+            android:textColor="@color/biz_btn_text"
+            android:onClick="webMove1"/>
 
         <Button
             android:layout_width="wrap_content"

@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:ems="10"
-            android:inputType="textVisiblePassword"/>
+            android:inputType="textVisiblePassword"
+            android:hint="메뉴명을 입력하세요"/>
 
     </LinearLayout>
 
@@ -52,7 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:ems="10"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:hint="가격을 입력하세요"/>
 
     </LinearLayout>
 

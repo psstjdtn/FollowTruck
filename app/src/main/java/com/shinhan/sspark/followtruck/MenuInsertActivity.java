@@ -61,6 +61,8 @@ public class MenuInsertActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void imageUpload(View view) {
         name       = (EditText)findViewById(R.id.name);
         price      = (EditText)findViewById(R.id.price);
@@ -94,7 +96,6 @@ public class MenuInsertActivity extends AppCompatActivity {
                             "http://172.16.2.3:52273/menu/images",
                             mCurrentPhotoPath, "DESCRIPTION");
                 }
-                break;
         }
     }
 

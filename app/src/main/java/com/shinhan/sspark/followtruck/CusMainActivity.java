@@ -38,7 +38,6 @@ import java.util.ArrayList;
 
 public class CusMainActivity extends AppCompatActivity {
 
-    SupportMapFragment mapFragment;
     GoogleMap map;
     int flag = 0;
 
@@ -68,8 +67,30 @@ public class CusMainActivity extends AppCompatActivity {
 
         Log.i("seongsoo", intent.getStringExtra("ID").toString());
 
-        getLocation();
-        UpdateMap();
+        SupportMapFragment mapFragment;
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new OnMapReadyCallback(){
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                Log.d("TAG", "Googlemap is ready");
+
+                getLocation();
+                // 현재위치
+                LatLng userLocate = new LatLng(latitude, longitude);
+                Log.d("seongsoo", "latitude=" + latitude + ", longitude=" + longitude);
+                
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(userLocate));
+                googleMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+
+                map = googleMap;
+            }
+        });
+
+        try {
+            MapsInitializer.initialize(this);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void locateUpdate() {
@@ -200,7 +221,7 @@ public class CusMainActivity extends AppCompatActivity {
         if (currentLocation != null) {
             double lng = currentLocation.getLongitude();
             double lat = currentLocation.getLatitude();
-            Log.d("Main", "longtitude=" + lng + ", latitude=" + lat);
+            Log.d("seongsoo", ", latitude=" + lat +", longtitude=" + lng);
         }
 
         return currentLocation;
